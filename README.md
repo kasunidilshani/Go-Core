@@ -34,25 +34,5 @@ The primary expectation of this project is to introduce our platform as a bridge
 
 ---
 
-# WHAT DOES GO CORE HAVE?
 
-## TOURISTS
-
- - Filter plans
- - Get weather updates
- - Customize tour plans
- - Make payments
- - Get notifications
- - Rate and give feedbacks
- - Seek support
-
-## TOUR GUIDES
-
- - Add travel plans
- - Add tour progress
- - Handle tourist payments
- - Get notifications
-
-
----
 
