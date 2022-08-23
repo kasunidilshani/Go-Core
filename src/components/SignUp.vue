@@ -34,7 +34,7 @@
           <input type="password" required placeholder="Re-enter password" class="inputstyle"><br><br>
         </div>
         <p><input type="checkbox">I have agreed to the terms and privacy policy</p>
-        <div style="justify-content:center"><a href="/dashboardPage.vue" style="color:white"><button class="btn logbtn btn-primary btn-lg">Sign In</button></a></div>
+        <div style="justify-content:center"><a href="/dashboardPage.vue" style="color:white"><button class="btn newbtn btn-primary btn-lg">Sign Up</button></a></div>
       </form>
     </div>
    <hr>
@@ -84,20 +84,18 @@ export default{
   padding-bottom: 10px;
 }
 
-.logbtn{
+.newbtn{
   background-color: #0084BD;
   border-color: #0084BD;
   border-style: solid;
   border-radius: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  width: 150px;
 }
 
-.logbtn:hover{
-  background-color:#B3DAEB;
-  border-color: #B3DAEB;
-  color: #085B7F
+.newbtn:hover{
+  background-color:hsl(198, 72%, 46%);
+  border-color:hsl(198, 72%, 46%);
 }
   
 

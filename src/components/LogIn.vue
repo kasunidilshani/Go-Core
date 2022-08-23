@@ -15,7 +15,7 @@
         <label for="password">Password</label><br>
         <input type="password" required placeholder="Password" class="inputstyle">
         <p class="d-flex justify-content-end">forgot password?</p>
-        <a href="/dashboardPage.vue"><button class="btn logbtn btn-primary btn-lg">Sign In</button></a>
+        <a href="/dashboardPage.vue"><button class="btn newbtn btn-primary btn-lg">Sign In</button></a>
       </form>
     </div>
     <div class="col-sm p-4">
@@ -77,13 +77,18 @@ export default{
   padding-bottom: 10px;
 }
 
-.logbtn{
+.newbtn{
   background-color: #0084BD;
   border-color: #0084BD;
   border-style: solid;
   border-radius: 20px;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+.newbtn:hover{
+  background-color:hsl(198, 72%, 46%);
+  border-color:hsl(198, 72%, 46%);
 }
 #heading2{
  
