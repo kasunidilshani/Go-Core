@@ -14,27 +14,27 @@
       <div><h3>Sign Up</h3></div>
       <form action="" class=" row p-4">
         <div class="col-sm">
-          <label for="name">First Name</label><br>
+          <label for="fname">First Name</label><br>
           <input type="text" required placeholder="Enter your first name" class="inputstyle"> <br><br>
-          <label for="text">NIC</label><br>
-          <input type="email" placeholder="example@gmail.com" class="inputstyle"><br><br>
-          <label for="name">Contact Details</label><br>
-          <input type="email" placeholder="+94xxxxxxxxx" class="inputstyle"><br><br>
+          <label for="nic">NIC</label><br>
+          <input type="text" placeholder="123345456v" class="inputstyle"><br><br>
+          <label for="phone">Contact Details</label><br>
+          <input type="tel" placeholder="+94xxxxxxxxx" class="inputstyle"><br><br>
           <label for="password">Password</label><br>
           <input type="password" required placeholder="Password" class="inputstyle" id="id_password"><br><br>
         </div>
         <div class="col-sm">
-          <label for="name">Last Name</label><br>
+          <label for="lname">Last Name</label><br>
           <input type="text" required placeholder="Enter your last name" class="inputstyle"> <br><br>
-          <label for="name">Email</label><br>
+          <label for="email">Email</label><br>
           <input type="email" placeholder="example@gmail.com" class="inputstyle"><br><br>
-          <label for="text">Address</label><br>
-          <input type="email" placeholder="example@gmail.com" class="inputstyle"><br><br>
+          <label for="address">Address</label><br>
+          <input type="text" placeholder="Enter your address" class="inputstyle"><br><br>
           <label for="password">Confirm Password</label><br>
           <input type="password" required placeholder="Re-enter password" class="inputstyle"><br><br>
         </div>
         <p><input type="checkbox">I have agreed to the terms and privacy policy</p>
-        <div style="justify-content:center"><a href="/dashboardPage.vue" style="color:white"><button class="btn newbtn btn-primary btn-lg">Sign Up</button></a></div>
+        <div style="justify-content:center"><a href="./dashboardPage.vue" style="color:white"><button class="btn newbtn btn-primary btn-lg">Sign Up</button></a></div>
       </form>
     </div>
    <hr>
