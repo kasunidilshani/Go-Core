@@ -73,10 +73,10 @@
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"></h6>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <button>Edit Profile</button>
+                                        <button class="btn btn-primary btn-lg deletebtn">Delete Account</button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <button>Delete Account</button>
+                                        <button class="btn btn-primary btn-lg newbtn">Edit Profile</button>
                                     </div>
                                 </div>
                             </div>
@@ -264,6 +264,32 @@ p {
     transition: all 0.3s ease-in-out;
 }
 
+.newbtn{
+  background-color: #0084BD;
+  border-color: #0084BD;
+  border-style: solid;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
+.newbtn:hover{
+  background-color:hsl(198, 72%, 46%);
+  border-color:hsl(198, 72%, 46%);
+}
+
+.deletebtn{
+  background-color: crimson;
+  border-color: crimson;
+  border-style: solid;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.deletebtn:hover{
+  background-color:hsl(4, 75%, 55%);
+  border-color:hsl(4, 75%, 55%);
+}
 
 </style>

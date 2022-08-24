@@ -13,29 +13,38 @@
       <div class="flex-row-reverse">
         <Modal @close="toggleModal" :modalActive="modalActive">
           <div class="modal-content">
-            <form action="post" class="login-form">
+            <form action="" class="login-form">
               <div class="p-3">
                 <h1>Tour Plan</h1>
                 <div class="form-group p-1">
-                  <input type="text" placeholder="Tour Title">
+                  <input type="text" v-model="tripTitle" placeholder="Tour Title">
                 </div>
                 <div class="form-group p-1">
-                    <input type="text" placeholder="Tour Duration">
+                    <input type="text" v-model="Duration" placeholder="Tour Duration">
                 </div>
                 <div class="form-group p-1">
-                    <input type="text" placeholder="Activities">
+                    <input type="text" v-model="Activities" placeholder="Activities">
                 </div>
-                <div class="form-group p-1">
+                <!--<div class="form-group p-1">
                     <input class="form-control-sm" type="file" id="formFile"><br>
                     <small>Add a cover photo for the tour plan</small>
+                </div>-->
+                <div class="form-group p-1">
+                   <input type="text" v-model="startCity" placeholder="Enter Starting City">
                 </div>
                 <div class="form-group p-1">
-                   <input type="text" placeholder="Enter Starting City">
+                   <input type="text" placeholder="Enter Next Destination" v-model="Destination">
+                </div>
+                <div class="form-group p-1">
+                   <input type="text" placeholder="Transportation Method" v-model="transport">
+                </div>
+                <div class="form-group p-1">
+                   <input type="text" placeholder="Accomodation" v-model="guide_add_plan.Accomodation">
                 </div>
               </div>
               <!--Dynamic input fields to add more destinations-->
               
-              <div class="p-3" v-for="(k,index) in destination" :key="index">
+              <!-- <div class="p-3" v-for="(k,index) in destination" :key="index">
                 
                 
                 <div class="form-group p-1">
@@ -48,15 +57,16 @@
                 <div class="form-group p-1">
                    <input type="text" placeholder="Accomodation" v-model="k.stay">
                 </div>
-              </div>
+              </div> -->
               <!-- Controls to add or remove fields-->
-              <div class="p-2">
+              <!-- <div class="p-2">
                 <a href="#" id="add-destination" @click="add" class="controls"><i class="fa-solid fa-plus"></i>Add Destination</a>
                 <a href="#" id="remove-destination" @click="remove(index)" class="controls"><i class="fa-solid fa-minus"></i>Remove Destination</a>
-              </div>
+              </div>-->
               <div class="p-4">
-                 <button class="newbtn btn btn-primary btn-lg">Add Plan</button>
-              </div>
+                 <a href="./dashboardPage.vue">
+                 <button class="newbtn btn btn-primary btn-lg" type="submit" v-on:click="guide_add_plan">Add Plan</button></a>
+              </div> 
               
             </form>
           </div>
@@ -85,7 +95,7 @@
                 </div>
 
                 <div class="card cardstyle" style="width: 18rem;" to="./viewPlan">
-                    <img class="card-img" src="../assets/nature.jpg" alt="Card image cap"> <!-- Photo by Elvi Madushanka: https://www.pexels.com/photo/view-of-the-galboda-waterfall-in-sri-lanka-12496768/ -->
+                    <a href="./viewPlan.vue"><img class="card-img" src="../assets/nature.jpg" alt="Card image cap"></a><!-- Photo by Elvi Madushanka: https://www.pexels.com/photo/view-of-the-galboda-waterfall-in-sri-lanka-12496768/ -->
                     <div class="card-body">
                     <p class="card-text">Ella Rock <br> Duration 4 days</p> 
                     </div>
@@ -167,10 +177,11 @@
 import footerbar from "./footerBar.vue"
 import Modal from "@/components/modalPopup.vue";
 import { ref } from "vue";
-import sidenav from "./sideNavbar.vue"
-import {sidebarWidth} from "./state"
-import { collapsed, toggleSidebar } from './state'
-import usernav from "./userNav.vue"
+import sidenav from "./sideNavbar.vue";
+import {sidebarWidth} from "./state";
+import { collapsed, toggleSidebar } from './state';
+import usernav from "./userNav.vue";
+import guide_add_plan from '../guide_add_plan.js';
  
 export default{
 
@@ -194,31 +205,38 @@ export default{
   },
 
   //define data
-data: function(){
+// data: function(){
 
-  return{
+//   return{
 
     
-    destination:[
-      {
-        name:'',
-        transport:'',
-        stay:''
-      }
-    ]
-  }
-},
+//     destination:[
+//       {
+//         name:'',
+//         transport:'',
+//         stay:''
+//       }
+//     ]
+//   }
+// },
 methods:{
-  add:function(){
-    this.destination.push({
-      name:'',
-      transport:'',
-      stay:''
-    })
+
+  async guide_add_plan(){
+    await guide_add_plan.insertGuidePlan(
+      this.tripTitle,this.Duration,this.Activities,this.startCity,this.Destination,this.transport,this.Accomodation
+
+    )
   },
-  remove(index){
-    this.destination.splice(index,1)
-  }
+  // add:function(){
+  //   this.destination.push({
+  //     name:'',
+  //     transport:'',
+  //     stay:''
+  //   })
+  // },
+  // remove(index){
+  //   this.destination.splice(index,1)
+  // }
 }
 }
 
