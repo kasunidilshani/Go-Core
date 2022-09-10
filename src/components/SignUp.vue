@@ -6,37 +6,45 @@
 <!------Content------->
 <div id="content" >
   <div class="row">
-    <div class="col-sm" style="padding-top:50px">
-      <img src="../assets/WithSlogan.png" alt="gocore logo" width="300px" height="300px">
-    </div>
+      <div><h3>Register to the system</h3></div>
+      
+        <div class="card-deck p-5">
+            <div class="d-flex flex-fill">
+
+                <div class="card cardstyle shadow-sm" style="width: 18rem;">
+                    <img class="card-img-top" src="../assets/Tourguide.png" alt="Card image cap"> <!-- https://www.freepik.com/free-vector/taxi-app-concept-illustration_7607041.htm#query=cab%20service&position=9&from_view=search -->
+                    <div class="card-title">
+                      Tour Guide
+                    </div>
+                    <div class="card-body">
+                      <a href="../guideRegister.vue"><button class="newbtn btn btn-m btn-primary">Sign Up</button></a>
+                    </div>
+                </div>
+
+                <div class="card cardstyle shadow-sm" style="width: 18rem;" to="./viewPlan">
+                    <a href="./viewPlan.vue"><img class="card-img" src="../assets/taxi.png" alt="Card image cap"></a><!-- https://storyset.com/web -->
+                    <div class="card-title">
+                      Cab Services
+                    </div>
+                    <div class="card-body">
+                      <a href="../cabRegister.vue"><button class="newbtn btn btn-m btn-primary">Sign Up</button></a>
+                    </div>
+                </div>
+
+                <div class="card cardstyle shadow-sm" style="width: 18rem;">
+                    <img class="card-img" src="../assets/HotelBooking.png" alt="Card image cap"> <!-- https://storyset.com/app -->
+                    <div class="card-title">
+                      Hotels
+                    </div>
+                    <div class="card-body">
+                      <a href="../hotelRegister.vue"><button class="newbtn btn btn-m btn-primary">Sign Up</button></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+       
     
-    <div class="col-sm p-3">
-      <div><h3>Sign Up</h3></div>
-      <form action="" class=" row p-4">
-        <div class="col-sm">
-          <label for="name">First Name</label><br>
-          <input type="text" required placeholder="Enter your first name" class="inputstyle"> <br><br>
-          <label for="text">NIC</label><br>
-          <input type="email" placeholder="example@gmail.com" class="inputstyle"><br><br>
-          <label for="name">Contact Details</label><br>
-          <input type="email" placeholder="+94xxxxxxxxx" class="inputstyle"><br><br>
-          <label for="password">Password</label><br>
-          <input type="password" required placeholder="Password" class="inputstyle" id="id_password"><br><br>
-        </div>
-        <div class="col-sm">
-          <label for="name">Last Name</label><br>
-          <input type="text" required placeholder="Enter your last name" class="inputstyle"> <br><br>
-          <label for="name">Email</label><br>
-          <input type="email" placeholder="example@gmail.com" class="inputstyle"><br><br>
-          <label for="text">Address</label><br>
-          <input type="email" placeholder="example@gmail.com" class="inputstyle"><br><br>
-          <label for="password">Confirm Password</label><br>
-          <input type="password" required placeholder="Re-enter password" class="inputstyle"><br><br>
-        </div>
-        <p><input type="checkbox">I have agreed to the terms and privacy policy</p>
-        <div style="justify-content:center"><a href="/dashboardPage.vue" style="color:white"><button class="btn logbtn btn-primary btn-lg">Sign In</button></a></div>
-      </form>
-    </div>
    <hr>
    </div>
 </div>
@@ -84,20 +92,18 @@ export default{
   padding-bottom: 10px;
 }
 
-.logbtn{
+.newbtn{
   background-color: #0084BD;
   border-color: #0084BD;
   border-style: solid;
   border-radius: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  width: 150px;
 }
 
-.logbtn:hover{
-  background-color:#B3DAEB;
-  border-color: #B3DAEB;
-  color: #085B7F
+.newbtn:hover{
+  background-color:hsl(198, 72%, 46%);
+  border-color:hsl(198, 72%, 46%);
 }
   
 
@@ -106,4 +112,10 @@ export default{
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #085B7F;
 }
+
+.cardstyle{
+  margin-left: 50px;
+  margin-right: 50px;
+
+  }
 </style>
