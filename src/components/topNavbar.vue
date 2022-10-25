@@ -1,5 +1,5 @@
 <template>
-<nav class=" navbar navbar-expand-md ">
+<nav class=" nav-bar navbar navbar-expand-md ">
 
     <div class="collapse navbar-collapse px-4" id="navbarSupportedContent">
       <a class="navbar-brand mainlogo" href="#">
@@ -9,7 +9,6 @@
  
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-   
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
         <a class="nav-link active" href="/HomePage.vue">Home</a>
@@ -17,8 +16,7 @@
        </ul>
     </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">About Us</a>
@@ -26,8 +24,7 @@
        </ul>
     </div>
 
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">  
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Explore</a>
@@ -35,8 +32,7 @@
        </ul>
     </div>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Contact Us</a>
@@ -44,8 +40,7 @@
        </ul>
     </div>
 
-     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/SignUp.vue">Sign Up</a>

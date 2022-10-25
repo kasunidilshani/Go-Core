@@ -1,103 +1,91 @@
 <template>
-  <div class="modal-backdrop">
-    <div class="modal">
-        <header class="modal-header">
-            <slot name="header">
-                This is the default title
-            </slot>
-            <button type="button" class="btn-close" @click="close">X</button>
-        </header>
-      
-        <section class="modal-body">
-            <slot name="body">
-                This is the default body
-            </slot>
-        </section>
-      
-        <footer class="modal-footer">
-            <slot name="footer">
-                This is the default footer 
-            </slot>
-            <button type="button" class="btn-green" @click="close">
-                Close Modal
-            </button>
-        </footer>
-      
+  <transition name="modal-animation">
+    <div v-show="modalActive" class="modal">
+      <transition name="modal-animation-inner">
+        <div v-show="modalActive" class="modal-inner">
+          <div class="d-flex flex-row-reverse p-3">
+            <button @click="close" type="button"><i class="fas fa-window-close"></i></button>
+          </div>
+          
+          <!-- Modal Content -->
+          <slot />
+        </div>
+      </transition>
     </div>
-  </div>
+  </transition>
 </template>
+
 <script>
-  export default {
-    name: 'modalPopup',
-    methods: {
-      close() {
-        this.$emit('close');
-      },
-    },
-  };
+export default {
+  props: ["modalActive"],
+  setup(props, { emit }) {
+    const close = () => {
+      emit("close");
+    };
+
+    return { close };
+  },
+};
 </script>
-<style>
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .modal {
-    background: #FFFFFF;
-    box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-  }
+<style scoped>
+.modal-animation-enter-active,
+.modal-animation-leave-active {
+  transition: opacity 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02);
+}
 
-  .modal-header,
-  .modal-footer {
-    padding: 15px;
-    display: flex;
-  }
+.modal-animation-enter-from,
+.modal-animation-leave-to {
+  opacity: 0;
+}
 
-  .modal-header {
+.modal-animation-inner-enter-active {
+  transition: all 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02) 0.15s;
+}
+
+.modal-animation-inner-leave-active {
+  transition: all 0.3s cubic-bezier(0.52, 0.02, 0.19, 1.02);
+}
+
+.modal-animation-inner-enter-from {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.modal-animation-inner-leave-to {
+  transform: scale(0.8);
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);}
+
+  .modal-inner {
     position: relative;
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
-    justify-content: space-between;
-  }
+    max-width: 640px;
+    width: 80%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: #fff;
+    padding: 64px 16px;}
 
-  .modal-footer {
-    border-top: 1px solid #eeeeee;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
+  
 
-  .modal-body {
-    position: relative;
-    padding: 20px 10px;
-  }
+    button {
+      padding: 5px 10px;
+      border: none;
+      font-size: 16px;
+      background-color: rgba(220, 20, 60, 0.653);
+      color: #fff;
+      cursor: pointer;
+      flex-direction: row-reverse;
+    }
+  
 
-  .btn-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    font-size: 20px;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #4AAE9B;
-    background: transparent;
-  }
-
-  .btn-green {
-    color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
-    border-radius: 2px;
-  }
 </style>

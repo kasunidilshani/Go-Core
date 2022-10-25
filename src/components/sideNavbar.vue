@@ -1,19 +1,13 @@
 <template>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="sidebar" :style="{ width: sidebarWidth }">
-    <h1>
-      <span v-if="collapsed">
-        <div>V</div>
-        <div>S</div>
-      </span>
-      <span v-else>Vue Sidebar</span>
-    </h1>
+  
 
-    <SidebarLink to="./HomePage.vue" icon="fas fa-home"></SidebarLink>
-    <SidebarLink to="./dashboardPage" icon="fas fa-columns">Dashboard</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">Analytics</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">Friends</SidebarLink>
-    <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
+    <SidebarLink to="./HomePage.vue" icon="fa-solid fa-house">Home</SidebarLink> <br>
+    <SidebarLink to="./dashboardPage.vue" icon="fa-solid fa-chalkboard-user">Dashboard</SidebarLink><br> 
+    <SidebarLink to="./profilePage.vue" icon="fa-solid fa-user">Profile</SidebarLink><br>
+    <SidebarLink to="#" icon="fa-solid fa-bell">Notification</SidebarLink><br>
+    <SidebarLink to="#" icon="fa-solid fa-gear">Settings</SidebarLink><br>
+ 
 
     <span
       class="collapse-icon"
@@ -26,11 +20,12 @@
 </template>
 
 <script>
-import '@fortawesome/fontawesome-free/js/all'
-import {collapsed,toggleSidebar,sidebarWidth} from './state'
+import SidebarLink from "./sidebarLink.vue"
+import {collapsed,toggleSidebar,sidebarWidth} from "./state"
 
 export default {
     props:{},
+    components: { SidebarLink },
     setup(){
         return {collapsed,toggleSidebar,sidebarWidth}
     },

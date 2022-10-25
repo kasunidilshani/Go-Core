@@ -1,12 +1,11 @@
 <template>
+
   <router-view > </router-view>
   <router-link> </router-link>
 
 </template>
 
-<script>
 
-</script>
 
 <style>
 #app {
@@ -22,7 +21,7 @@
 }
 
 .mainlogo{
-  min-height: 1px;
+  min-height: 10px;
 }
 
 .profile{
@@ -30,4 +29,5 @@
     height: 60px;
     border-radius: 45px;
 }
+
 </style>

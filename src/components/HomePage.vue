@@ -13,7 +13,7 @@
       </div>
       <p id="heading1"> Chase the Adventure </p>
       <div class="p-5">
-        <a href="/LogIn.vue"><button type="button" class="btn logbtn btn-primary btn-lg">Log In</button></a>
+        <a href="/LogIn.vue"><button type="button" class="btn newbtn btn-primary btn-lg">Log In</button></a>
       </div>
   
   </div>
@@ -125,15 +125,18 @@ export default{
 
 }
 
-.logbtn{
+.newbtn{
   background-color: #0084BD;
   border-color: #0084BD;
   border-style: solid;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   border-radius: 20px;
   padding-left: 30px;
   padding-right: 30px;
-  
+}
+
+.newbtn:hover{
+  background-color:hsl(198, 72%, 46%);
+  border-color:hsl(198, 72%, 46%);
 }
 
 </style>
