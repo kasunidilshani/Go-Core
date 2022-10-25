@@ -35,10 +35,97 @@
               <p><i class="fa-solid fa-map-location-dot"></i>Final Destination</p><br>
               <p><i class="fas fa-hotel"></i>Accommodation</p> 
         </div>
-        <dir class="p-3">
-          <a href="#" class="btn btn-primary newbtn">Edit</a>
-        </dir>
-        
+        <!--Modal pop up to edit the tourplan-->
+
+         <div class="flex-row-reverse">
+        <Modal @close="toggleModal" :modalActive="modalActive">
+
+          <div class="modal-content">
+            <form action="" class="modal-form">
+              <div class="p-3">
+                <h1>Tour Plan</h1>
+                
+                  <div class="form-group p-1">
+                    <input type="text"  placeholder="Tour Title">
+                  </div>
+
+                  <div class="form-group p-1">
+                    <input class="form-control-sm" type="file" id="formFile"><br>
+                    <small>Update the cover photo of the tour plan</small>
+                  </div>
+
+                  <div class="form-group p-1">
+                    <input type="text" placeholder="Enter Starting City">
+                  </div>
+
+                  <div class="form-group p-1">
+                    <input type="text" placeholder="Enter Destination">
+                  </div>
+
+                  <div class="form-group p-1">
+                      <input type="number"  placeholder="No Of Travellers">
+                  </div>
+
+                  <div class="form-group p-1">
+                      <input type="text" placeholder="Price">
+                  </div>
+
+                     <div class="form-group p-1">
+                    <input type="text" placeholder="Accommodation" list="lounge">
+                      <datalist class="" name="lounge" id="lounge" >
+                        <option>Not Provided</option>
+                      </datalist>
+                  </div>
+
+                  <div class="form-group p-1">
+                      <select class="form-select form-select-md" name="activities" id="activities" >
+                        <option selected value="activities">Activities</option>
+                        <option value="Hiking">Hiking</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Surfing">Surfing</option>
+                        <option value="Camping">Camping</option>
+                      </select>
+                    </div>
+
+                  <div class="form-group p-1">
+                      <select class="form-select form-select-md" name="transport" id="transport">
+                        <option selected value="Transportation Method">Transportation Method</option>
+                        <option value="no">Not Provided</option>
+                        <option value="taxi">Taxi</option>
+                        <option value="private">Drive</option>
+                        <option value="train">Train</option>
+                        <option value="bus">Bus</option>
+                      </select>
+                    </div>
+                  
+                  <div class="form-group p-1">
+                    <select class="form-select form-select-md" name="payment" id="payment">
+                      <option selected value="Payment Method">Payment Method</option>
+                      <option value="cash">Cash Payment</option>
+                      <option value="card">Card Payment</option>
+                    </select>
+                  </div>
+              </div>
+                <div class="p-4">
+                  <a href="./dashboardPage.vue">
+                  <button class="newbtn btn btn-primary btn-lg m-2" type="submit">Update</button></a>
+              
+                  <a href="./dashboardPage.vue">
+                  <button class="clsbtn btn btn-primary btn-lg m-2" type="reset">Cancel</button></a>
+                </div> 
+                
+            </form>
+          </div>
+          <!-- Toggle the modal popup -->
+        </Modal>
+        <div class="p-3">
+          <button type="button" class="btn btn-primary newbtn" @click="toggleModal">
+            Edit 
+          </button>  
+        </div>
+      </div>
+        <!--modal popup ends-->   
+
     </div>
   </div>
   <div class="col-md-6">
@@ -104,9 +191,11 @@
 
 import footerbar from "./footerBar.vue"
 import sidenav from "./sideNavbar.vue"
+import { ref } from "vue";
 import {sidebarWidth} from "./state"
 import { collapsed, toggleSidebar } from './state'
 import usernav from "./userNav.vue"
+import Modal from "@/components/modalPopup.vue";
 //import tourPlanNav from "./tourPlanNav.vue"
 
  
@@ -116,6 +205,7 @@ export default{
     footerbar,
     sidenav,
     usernav,
+    Modal
     //tourPlanNav,
    
   },
@@ -123,7 +213,13 @@ export default{
   name:"viewPlan",
 
   setup(){
-    return{sidebarWidth},{ collapsed, toggleSidebar }
+     const modalActive = ref(false);
+
+    const toggleModal = () => {
+      modalActive.value = !modalActive.value;
+    };
+    
+    return{sidebarWidth},{ collapsed, toggleSidebar },{ modalActive, toggleModal }
   },
   data() {
       return {
@@ -276,5 +372,83 @@ input {
 
 .card-img{
   max-block-size: 350px;
+}
+.modal-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: none;
+    }
+
+    .modal-content h1,p {
+      margin-bottom: 16px;
+    }
+
+     .modal-content h1 {
+      font-size: 32px;
+    }
+
+     .modal-content p {
+      font-size: 18px;
+    }
+
+    .modal-form{
+    border: 1.5px;
+    border-radius: 5px;
+    border-color: gray;
+    border-style: solid;
+    width: 30vw;
+    max-height: 1000vh;
+    align-items: center;
+  
+
+}
+.modal-form input{
+  border-width: 0.5px;
+  border-color: gray;
+  border-style: solid;
+  border-radius: 10px;
+  word-spacing: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 350px;
+  appearance: none;
+
+}
+
+.model-form select{
+  border-width: 1.5px;
+  border-color: gray;
+  border-style: solid;
+  border-radius: 10px;
+  word-spacing: 5px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 350px;
+  appearance: none;
+  
+}
+.clsbtn{
+  background-color: crimson;
+  border-color: crimson;
+  border-style: solid;
+  border-radius: 20px;
+  padding-left: 30px;
+}
+
+
+.controls{
+  color: black;
+  padding: 5px;
+  
+}
+
+.formstyle{
+  background-color:#D5EFFA;
+  border-radius: 15px;
 }
 </style>
