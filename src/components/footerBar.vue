@@ -10,11 +10,11 @@
         <h5 class="text-uppercase">Social Media</h5> 
 
         <p>
-          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa-brands fa-facebook"></a>
 
-          <a href="#" class="fa fa-linkedin"></a>
+          <a href="#" class="fa-brands fa-linkedin"></a>
 
-          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa-brands fa-instagram"></a>
         </p>
       </div>
       <!--Grid column-->
